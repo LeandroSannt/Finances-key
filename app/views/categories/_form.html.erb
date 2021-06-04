@@ -1,0 +1,27 @@
+<%= form_with(model: category) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-sm-12">
+    <%= form.label :nome_da_categoria %>
+    <%= form.text_field :name_category , class: 'form-control'%>
+  </div>
+
+  <div class="row">
+
+    <div class="form-group col-6">
+       <%= form.select :priority, options_for_select(Category.colors, @category.priority),{include_blank:false, requerid: false} , class: "form-control select"%>
+    </div>
+
+  <div class="form-group mt-4">
+    <%= form.submit 'Registrar', class:'btn btn-success'%>
+  </div>
+<% end %>

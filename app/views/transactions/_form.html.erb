@@ -1,0 +1,66 @@
+<%= form_with(model: transaction) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-sm-12">
+    <%= form.label :nome_da_trasanção%>
+    <%= form.text_field :name_transaction, class: 'form-control' %>
+  </div>
+
+  <div class="row">
+
+    <div class="form-group col-6">
+      <%= form.label :valor_da_transação %>
+      <%= form.number_field :value, min: "0", step: "0.01", require: true,  class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-6">
+      <%= label_tag "Venda de" %>
+      <%= form.date_field("date_transaction", value: Date.today, class: 'form-control') %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= form.radio_button :situation, 'true',autocomplete:"off" ,id:"danger-outlined",class:"btn-check"%>
+      <%= form.label "Retirada", for:"danger-outlined",class:"btn btn-outline-danger   w-100 p-3 mt-3" %>
+    </div>
+    <div class="col">
+      <%= form.radio_button :situation, 'false',autocomplete:"off",id:"success-outlined",class:"btn-check" %>
+      <%= form.label "Entradas", for:"success-outlined",class:"btn btn-outline-success w-100 p-3 mt-3" %>
+    </div>
+  </div>
+ 
+  
+  <div class="form-group col-sm-12">
+    <%= form.label :categoria %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, 'id', 'name_category'), {include_blank: true, requerid: true}, class: 'form-control ' %>
+  </div>
+
+  <div class="form-group col-sm-12">
+    <%= form.label "Descrição", for:"textarea" %>
+    <%= form.text_area :description, size: "25X25", class: "form-control", id: "textarea" %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= form.submit 'Registrar', class:'btn btn-success'%>
+  </div>
+    
+  </div>
+
+
+
+
+
+  
+<% end %>

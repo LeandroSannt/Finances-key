@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FinancesKey</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+          <%= link_to transactions_path, class:"arrow" do %>
+            <%= image_tag("backarrow.svg", class: "") %>
+          <%end%>
+      </div>
+    
+      <div class="new">
+        <%= form_tag transactions_path, method: 'get',class:"" do %>
+            <%= text_field_tag :nome, params[:nome], class: "",placeholder: 'Procurar Transação' %>
+        <%end%>
+        <div class="d-flex w-100">
+          <%= link_to '+ Transação', new_transaction_path ,class:"button"%>
+          <%= link_to '+ Categoria', new_category_path ,class:"button"%>
+        <div>
+      <div>
+    </header>
+      <%= yield %>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap-growl-ifightcrime/jquery.bootstrap-growl.min.js"></script>
+
+<%if notice %>
+    <script>
+    $.bootstrapGrowl("<%=notice%>", {
+    ele: 'body', // which element to append to
+    type: 'success', // (null, 'info', 'error', 'success')
+    offset: {from: 'bottom', amount:20 },
+    align: 'right', // ('left', 'right', or 'center')
+    allow_dismiss: false,
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+    })
+    </script>
+<%end%>
+  
+  </body>
+
+</html>

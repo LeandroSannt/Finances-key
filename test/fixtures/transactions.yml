@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_transaction: MyString
+  value: MyString
+  date_transaction: 2021-06-01
+  situation: false
+  description: MyText
+  category: one
+
+two:
+  name_transaction: MyString
+  value: MyString
+  date_transaction: 2021-06-01
+  situation: false
+  description: MyText
+  category: two

@@ -1,0 +1,99 @@
+<main>
+  <div class='header-transactions'>
+    <h2>Transações</h2>
+    <%= form_tag transactions_path, method: 'get',class:"" do %>
+      <%= select(:person, :city_id, [['JANEIRO', 1], ['FEVEREIRO', 2]]) %>
+    <%end%>
+  </div>
+
+
+ <div class="cards-money">
+    <div class="card-money">
+      <div> 
+        <p class="controll">ENTRADAS</p>
+        <%= image_tag("income.svg", class: "") %>
+      </div>
+        <h3><%= number_to_currency(@withdraws, :unit => "R$") %></h3>
+    </div>
+
+    <div class="card-money">
+      <div> 
+        <p class="controll">SAIDAS</p>
+        <%= image_tag("outcome.svg", class: "") %>
+
+      </div>
+        <h3><%= number_to_currency(@Appetizer, :unit => "R$") %></h3>
+    </div>
+
+    <div class="card-money">
+      <div> 
+        <p class="controll whitecolor">SALDO</p>
+        <%= image_tag("total.svg", class: "") %>
+      </div>
+        <h2 class="whitecolor"><%=number_to_currency(@balance, :unit => "R$") %></h2>
+    </div>
+  </div>
+</main>
+
+<% @categories.each do |category| %>
+         
+  <div class="btn-collapse">
+    <a class="" data-bs-toggle="collapse" href="#collapse<%=category.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <div class="category-transaction">
+        <div>
+          <div class="color" >
+            <span style="background-color:<%=category.priority%>"></span>
+            <p><%= category.name_category%></p>
+          </div>
+          <p> <%=category.transactions.count%>
+              <%=category.transactions.count <= 1 ? 'transação' : 'transações' %> 
+        </div>
+        <H3> <%= number_to_currency(category.transactions.total, :unit => "R$") 
+        %></H3>
+      </div>
+
+      <span>
+          <%= image_tag("arrow-down.svg", class: "") %>
+      </span>
+    </a>
+  </div>
+
+  <%category.transactions.all.each do |transactions|%>           
+    <div class="collapse" id="collapse<%=category.id%>">
+
+      <div class="transaction-info">
+        <div>
+          <p><%=transactions.name_transaction%></p>
+        </div>
+
+        <div>
+          <H3 style="color:<%=transactions.situation == true ? 'red' : 'green' %>">
+          <%= number_to_currency(transactions.value, :unit => "R$") %></H3>
+          
+
+          <p><%= transactions.date_transaction ? l(transactions.date_transaction, formats: :casual, locale: :'pt-BR', default: '-') : l(transactions.created_at, formats: :casual, locale: :'pt-BR', default: '-')%></p> 
+        </div>
+      </div>  
+    </div>
+<%end%>
+<% end %>
+
+
+<script>
+
+document.getElementById('filter').addEventListener('change', function() {
+    this.form.submit();
+});
+</script>
+
+
+
+ 
+ 
+
+    
+
+    
+ 
+
+
