@@ -24,7 +24,7 @@
     </div>
 
     <div class="form-group col-6">
-      <%= label_tag "Venda de" %>
+      <%= label_tag "Data da transação" %>
       <%= form.date_field("date_transaction", value: Date.today, class: 'form-control') %>
     </div>
 
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-6">
       <%= form.radio_button :situation, 'true',autocomplete:"off" ,id:"danger-outlined",class:"btn-check"%>
-      <%= form.label "Retirada", for:"danger-outlined",class:"btn btn-outline-danger   w-100 p-3 mt-3" %>
+      <%= form.label "Saidas", for:"danger-outlined",class:"btn btn-outline-danger   w-100 p-3 mt-3" %>
     </div>
     <div class="col">
       <%= form.radio_button :situation, 'false',autocomplete:"off",id:"success-outlined",class:"btn-check" %>
