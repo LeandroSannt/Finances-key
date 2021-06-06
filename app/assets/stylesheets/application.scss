@@ -133,13 +133,13 @@ header{
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: .6rem 1rem;
+            padding: .6rem .8rem;
             width: 100%;
             border-radius: 5px;
             background-color: var(--color-primary);
             transition: all 200ms;
 
-            a{
+            a{  
                 text-decoration: none;
                 color: black;
                 text-align: center;
