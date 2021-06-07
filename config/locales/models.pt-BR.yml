@@ -1,0 +1,21 @@
+'PT-BR':
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categorias
+      transaction:
+        oner: Transação
+        other: Transações
+    attributes:
+      category:
+        id: Codigo
+        name_category: Nome da categoria
+        priority: Ordem de prioridade
+      transaction:
+        id: Codigo
+        value: Valor da transação
+        date_transaction: Data da transação
+        situation: Situação
+        description: Descrição
+

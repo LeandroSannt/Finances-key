@@ -1,10 +1,10 @@
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+      <h4 class="alert-heading mb-3">ERRO</h4>
       <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
@@ -18,7 +18,8 @@
   <div class="row">
 
     <div class="form-group col-6">
-       <%= form.select :priority, options_for_select(Category.colors, @category.priority),{include_blank:false, requerid: false} , class: "form-control select"%>
+    <%= form.label :selecione_uma_etiqueta %>
+    <%= form.select :priority, options_for_select(Category.colors, @category.priority),{include_blank:false, requerid: false} , class: "form-control select"%>
     </div>
 
   <div class="form-group mt-4">

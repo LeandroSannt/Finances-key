@@ -1,6 +1,11 @@
 class Transaction < ApplicationRecord
   belongs_to :category
 
+  validates :name_transaction, presence: true
+  validates :value, presence: true
+  validates :situation, presence: true
+  validates :date_transaction, presence: true
+
   def self.total
     self.sum(:value)
   end

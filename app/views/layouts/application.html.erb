@@ -14,7 +14,10 @@
   </head>
 
   <body>
+  <% if current_user.present? %>
     <header>
+      <%#= link_to "Sair",destroy_user_session_path, method: :delete, class: "btn btn-primary"  %>
+
       <div class="logo">
           <%= link_to transactions_path, class:"arrow" do %>
             <%= image_tag("backarrow.svg", class: "") %>
@@ -31,6 +34,7 @@
         <div>
       <div>
     </header>
+  <%end%>  
       <%= yield %>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap-growl-ifightcrime/jquery.bootstrap-growl.min.js"></script>

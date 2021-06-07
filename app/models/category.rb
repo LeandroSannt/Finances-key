@@ -1,6 +1,9 @@
 class Category < ApplicationRecord
   has_many :transactions
 
+  validates :name_category, presence: true
+
+
   def self.colors
     ['Escolha uma cor','red','blue','yellow','green', 'mediumslateblue', 'brown']
 end

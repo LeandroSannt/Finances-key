@@ -1,16 +1,14 @@
 <%= form_with(model: transaction) do |form| %>
   <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+      <h4 class="alert-heading mb-3">ERRO</h4>
       <ul>
-        <% transaction.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% transaction.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="form-group col-sm-12">
     <%= form.label :nome_da_trasanção%>
     <%= form.text_field :name_transaction, class: 'form-control' %>
