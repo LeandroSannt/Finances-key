@@ -7,6 +7,7 @@ desc "TODO"
         show_spinner("Migrando BD..."){%x(rails db:migrate)}
         show_spinner("Adicionando do usuario padrao.."){%x(rails dev:add_default_user)}
         show_spinner("Adicionando do categoria padrao.."){%x(rails dev:add_default_category)}
+        show_spinner("Adicionando do transação padrao.."){%x(rails dev:add_default_transaction)}
 
     else
         puts "Voce não esta no ambiente de desenvolvimento!"    
@@ -29,6 +30,18 @@ desc "Adicionar o categoria padrão"
       priority: "green",
       user_id: 1
 
+    )
+  end
+
+  desc "Adicionar o transacao padrão"
+  task add_default_transaction: :environment do
+    Transaction.create!(
+      name_transaction:"Salario",
+      value: 890,
+      situation: false,
+      date_transaction: Date.today,
+      category_id: 1,
+      user_id: 1
     )
   end
 

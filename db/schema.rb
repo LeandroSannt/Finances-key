@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_114148) do
+ActiveRecord::Schema.define(version: 2021_06_08_210718) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name_category"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_114148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "transaction_id"
+    t.index ["transaction_id"], name: "index_categories_on_transaction_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_114148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "transactions"
   add_foreign_key "categories", "users"
   add_foreign_key "transactions", "categories"
   add_foreign_key "transactions", "users"

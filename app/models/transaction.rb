@@ -7,6 +7,9 @@ class Transaction < ApplicationRecord
   #validates :situation, presence: true
   validates :date_transaction, presence: true
 
+  scope :category_month, ->  {where('transactions.date_transaction BETWEEN ? AND ?', Date.today.beginning_of_month, Date.today.end_of_month)}
+
+
   def self.total
     self.sum(:value)
   end
