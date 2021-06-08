@@ -3,21 +3,21 @@
     <div class='row'>
       <p>
         <div class="form-group col-md-5">
-          <strong>Nome da trasanção:</strong>
+          <strong>Nome da trasanção:</strong><Br>
           <p><%= @transaction.name_transaction.truncate(60)%></p>
         </div>
       </p>
 
       <p>
         <div class='form-group col-md-6'>
-          <strong>Valor da transação:</strong>
+          <strong>Valor da transação:</strong><Br>
           <%=number_to_currency(@transaction.value, :unit => "R$")  %>
         </div>
       </p>
 
       <p>
         <div class='form-group col-md-6'>
-          <strong>Data da transação:</strong>
+          <strong>Data da transação:</strong><Br>
           <%=l(@transaction.date_transaction, formats: :casual, locale: :'pt-BR', default: '-')%>
         </div>
       </p>
@@ -39,7 +39,7 @@
 
       <p>
         <div class='form-group col-md-6'>
-          <strong>Description:</strong>
+          <strong>Description:</strong><Br>
           <%= @transaction.description %>
         </div>
       </p>

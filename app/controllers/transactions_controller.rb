@@ -4,13 +4,16 @@ class TransactionsController < ApplicationController
   # GET /transactions or /transactions.json
   def index
     @transactions = current_user.transactions
+
+    @categories = Category.where(user:current_user).where('created_at BETWEEN ? AND ?', Date.today.beginning_of_month, Date.today.end_of_month)
+
+    @categories = Category.joins(:transactions).where(user:current_user).where('transactions.date_transaction BETWEEN ? AND ?', Date.today.beginning_of_month, Date.today.end_of_month)
     
     @Appetizer = @transactions.where(situation: true).sum(:value)
 
     @withdraws = @transactions.where(situation: false).sum(:value)
 
     @balance =   @Appetizer + (@withdraws)
-    @categories = Category.where(user:current_user)
 
   end
 
