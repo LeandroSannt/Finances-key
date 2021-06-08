@@ -3,16 +3,14 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
     
     @Appetizer = @transactions.where(situation: true).sum(:value)
 
     @withdraws = @transactions.where(situation: false).sum(:value)
 
     @balance =   @Appetizer + (@withdraws)
-
-    @categories = Category.all
-
+    @categories = Category.where(user:current_user)
 
   end
 
@@ -32,8 +30,9 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-#binding.pry
+    #binding.pry
     @transaction.situation == true  ? @transaction.value = @transaction.value.to_i * -1 : @transaction.value 
+    @transaction.user = current_user
 
     respond_to do |format|
       if @transaction.save

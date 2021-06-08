@@ -66,12 +66,13 @@ p{
     margin-bottom: 0 !important;
 }
 
+
 header{
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem  ;
+    padding: 1rem 2rem  ;
     background-color: rgb(203, 223, 233);
     -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 5px px rgba(0, 0, 0, 0.4);
@@ -99,8 +100,13 @@ header{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
 
+        .btn.sair{
+            background-color: transparent !important;
+            color: black !important;
+            margin-bottom: 10px;
+        }
 
         .arrow{
             width: 100%;

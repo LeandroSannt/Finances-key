@@ -39,6 +39,7 @@
 
     .card-money > div{
         display: flex;
+        
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
@@ -127,7 +128,7 @@
     }
 }
 
-    .collapse{
+.collapse{
         margin: 0 auto;
         width: 95%;
         padding:.8rem .5rem;
@@ -144,11 +145,28 @@
             border-bottom: 1px solid rgb(206, 204, 204);
             margin: 20px;
 
-            div:first-child{
+            .card-transaction{
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-evenly;
+                width: 500px;
                 max-width: 150px;
+
+                .content-actions{
+                    display: flex   ;
+
+                    img{
+                        margin-top: -20px;
+                        width: 15px;
+                        height: 15px;
+                        margin-right: 8px;
+                        
+                    }
+
+                    img + img{
+                    }
+                }
             }
 
             div:last-child{
@@ -173,5 +191,13 @@
 
         
 
+}
+
+.show{
+    .form-group{
+        p{
+             
+        }
+    }
 }
 

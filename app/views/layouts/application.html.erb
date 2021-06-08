@@ -16,12 +16,12 @@
   <body>
   <% if current_user.present? %>
     <header>
-      <%#= link_to "Sair",destroy_user_session_path, method: :delete, class: "btn btn-primary"  %>
 
       <div class="logo">
           <%= link_to transactions_path, class:"arrow" do %>
             <%= image_tag("backarrow.svg", class: "") %>
           <%end%>
+      <%= link_to "Sair",destroy_user_session_path, method: :delete, class: "btn sair"  %>
       </div>
     
       <div class="new">

@@ -27,12 +27,31 @@ pt-BR:
         updated_at: Atualizado em
     models:
       user: Usuário
+      category: Categoria
+      Transaction: Transação
+      category_id: Categoria
+    attributes:
+      category:
+        name_category: Nome da categoria
+        priority: Prioridade
+        category_id: Categoria
+      transaction:
+        name_transaction: Nome da transação
+        value: Valor da transação
+        date_transaction: Data da transação
+        situation: Situação
+        description: Descrição
+        category_id: Categoria
     errors:
       models:
         usuario:
           attributes:
             email:
               not_found: incorreto ou não existe
+        transaction:
+          attributes:
+            category_id: Categoria
+
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.

@@ -1,62 +1,63 @@
-          
-<div class='card-body'>
-  <div class='row'>
-    <p>
-      <div class="form-group col-md-3">
-        <strong>Nome da trasanção:</strong>
-        <%= @transaction.name_transaction %>
-      </div>
-    </p>
+<div class="show">   
+  <div class='card-body'>
+    <div class='row'>
+      <p>
+        <div class="form-group col-md-5">
+          <strong>Nome da trasanção:</strong>
+          <p><%= @transaction.name_transaction.truncate(60)%></p>
+        </div>
+      </p>
 
-    <p>
-      <div class='form-group col-md-3'>
-        <strong>Valor da transação:</strong>
-        <%=number_to_currency(@transaction.value, :unit => "R$")  %>
-      </div>
-    </p>
+      <p>
+        <div class='form-group col-md-6'>
+          <strong>Valor da transação:</strong>
+          <%=number_to_currency(@transaction.value, :unit => "R$")  %>
+        </div>
+      </p>
 
-    <p>
-      <div class='form-group col-md-3'>
-        <strong>Data da transação:</strong>
-        <%=l(@transaction.date_transaction, formats: :casual, locale: :'pt-BR', default: '-')%>
-      </div>
-    </p>
+      <p>
+        <div class='form-group col-md-6'>
+          <strong>Data da transação:</strong>
+          <%=l(@transaction.date_transaction, formats: :casual, locale: :'pt-BR', default: '-')%>
+        </div>
+      </p>
 
-    <p>
-      <div class='form-group col-md-3'>
-        <strong>Situação:</strong>
+      <p>
+        <div class='form-group col-md-6'>
+          <strong>Situação:</strong><Br>
 
-        <%=@transaction.situation  == true ? "Retirada" : "Entrada"%>
-      </div>
-    </p>
+          <%=@transaction.situation  == true ? "Retirada" : "Entrada"%>
+        </div>
+      </p>
 
-    <p>
-      <div class='form-group col-md-3'>
-        <strong>Categoria:</strong>
-        <%= @transaction.category.name_category %>
-      </div>
-    </p>
+      <p>
+        <div class='form-group col-md-6'>
+          <strong>Categoria:</strong><Br>
+          <%= @transaction.category.name_category %>
+        </div>
+      </p>
 
-    <p>
-      <div class='form-group col-md-3'>
-        <strong>Description:</strong>
-        <%= @transaction.description %>
-      </div>
-    </p>
+      <p>
+        <div class='form-group col-md-6'>
+          <strong>Description:</strong>
+          <%= @transaction.description %>
+        </div>
+      </p>
 
-    <div class="row mt-4">
-      <div class="col-6">
+      <div class="row mt-4">
+        <div class="col-6">
 
-        <%= link_to 'Editar', edit_transaction_path(@transaction), class: 'btn btn-warning w-100' %>
-      </div> 
-                
-      <div class="col-6">
-      
-        <%= link_to 'Voltar', transactions_path, class: 'btn btn-danger w-100' %>
-      </div> 
-      </div>
+          <%= link_to 'Editar', edit_transaction_path(@transaction), class: 'btn btn-warning w-100' %>
+        </div> 
+                  
+        <div class="col-6">
+        
+          <%= link_to 'Voltar', transactions_path, class: 'btn btn-danger w-100' %>
+        </div> 
+        </div>
+    </div>
+
   </div>
-
 </div>
 
 

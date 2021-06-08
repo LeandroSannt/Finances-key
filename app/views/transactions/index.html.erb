@@ -62,15 +62,30 @@
     <div class="collapse" id="collapse<%=category.id%>">
 
       <div class="transaction-info">
-        <div>
-          <p><%=transactions.name_transaction%></p>
+        
+        <div class="card-transaction">
+          <div class="content-actions">
+
+            <%= link_to  transactions do%>
+              <%= image_tag("view.png", class: "yellow") %>
+            <%end%>
+
+            <%= link_to edit_transaction_path(transactions) do %>
+                <%= image_tag("edit.png", class: "") %>
+             <%end%>
+
+             <%= link_to transactions, method: :delete, data: { confirm: 'Voce tem certeza ?' } do %>
+                <%= image_tag("cancel.png", class: "") %>
+             <%end%>
+
+          </div>
+            <p><%=transactions.name_transaction.truncate(20)%></p>
         </div>
 
         <div>
           <H3 style="color:<%=transactions.situation == true ? 'red' : 'green' %>">
           <%= number_to_currency(transactions.value, :unit => "R$") %></H3>
           
-
           <p><%= transactions.date_transaction ? l(transactions.date_transaction, formats: :casual, locale: :'pt-BR', default: '-') : l(transactions.created_at, formats: :casual, locale: :'pt-BR', default: '-')%></p> 
         </div>
       </div>  
