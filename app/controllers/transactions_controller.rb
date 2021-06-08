@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     @transactions = current_user.transactions
 
-    @categories = Category.joins(:transactions).where(user:current_user).where('transactions.date_transaction BETWEEN ? AND ?', Date.today.beginning_of_month, Date.today.end_of_month)
+    @categories = Category.where(user:current_user)
     
     @Appetizer = @transactions.where(situation: true).category_month.sum(:value)
 
