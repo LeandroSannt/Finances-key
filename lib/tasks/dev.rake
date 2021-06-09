@@ -17,7 +17,7 @@ end
 desc "Adicionar o usuario padrão"
   task add_default_user: :environment do
     User.create!(
-      email:"lsn_slim@yahoo.com.br",
+      email:"admin@admin.com",
       password: 123456,
       password_confirmation: 123456
   )
@@ -37,7 +37,7 @@ desc "Adicionar o categoria padrão"
   task add_default_transaction: :environment do
     Transaction.create!(
       name_transaction:"Salario",
-      value: 890,
+      value: 1500,
       situation: false,
       date_transaction: Date.today,
       category_id: 1,
