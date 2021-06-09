@@ -67,6 +67,6 @@ rails dev:setup
 Registre-se e aproveite 
 
 ## <h4 align="center"> 
-   🚧  OBS: O Sistema foi feito para ser utilizado em visao mobile futuramente atualização para um wpa 🚧 
+   🚧  OBS: O Sistema foi feito para ser utilizado em visao mobile futuramente atualização para um pwa 🚧 
 
 
