@@ -1,11 +1,10 @@
 <main>
   <div class='header-transactions'>
     <h2>Transações</h2>
-    <%= form_tag transactions_path, method: 'get',class:"" do %>
-      <%= select(:person, :city_id, [['JANEIRO', 1], ['FEVEREIRO', 2]]) %>
-    <%end%>
+    <%#= form_tag transactions_path, method: 'get',class:"" do %>
+      <%#= select(:person, :city_id, [['JANEIRO', 1], ['FEVEREIRO', 2]]) %>    
+    <%#end%>
   </div>
-
 
  <div class="cards-money">
     <div class="card-money">
@@ -45,10 +44,10 @@
             <span style="background-color:<%=category.priority%>"></span>
             <p><%= category.name_category%></p>
           </div>
-          <p> <%=category.transactions.category_month.count%>
-              <%=category.transactions.category_month.count <= 1 ? 'transação' : 'transações' %> 
+          <p> <%=category.transactions.count%>
+              <%=category.transactions.count <= 1 ? 'transação' : 'transações' %> 
         </div>
-        <H3> <%= number_to_currency(category.transactions.category_month.total, :unit => "R$") 
+        <H3> <%= number_to_currency(category.transactions.total, :unit => "R$") 
         %></H3>
       </div>
 
@@ -58,7 +57,7 @@
     </a>
   </div>
 
-  <%category.transactions.category_month.each do |transactions|%>           
+  <%category.transactions.each do |transactions|%>           
     <div class="collapse" id="collapse<%=category.id%>">
 
       <div class="transaction-info">

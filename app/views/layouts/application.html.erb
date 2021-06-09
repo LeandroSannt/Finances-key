@@ -26,7 +26,14 @@
     
       <div class="new">
         <%= form_tag transactions_path, method: 'get',class:"" do %>
-            <%= text_field_tag :nome, params[:nome], class: "",placeholder: 'Procurar Transação' %>
+          <div class="filter d-flex">
+            <%= text_field_tag :filter, params[:filter], class: "",placeholder: 'Procurar Categoria' %>
+
+            <%= button_tag(value: 'commit', type: 'submit', class: 'btn btn-sge  mb-2') do%>
+                <%= image_tag("loupe.png", style: "width:20px;heigth:20px") %>
+          </div>
+            
+          <% end %>
         <%end%>
         <div class="d-flex w-100">
           <%= link_to '+ Transação', new_transaction_path ,class:"button"%>

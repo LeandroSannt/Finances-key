@@ -120,19 +120,35 @@ header{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        input{
-            margin-bottom: .8rem;
-            padding: .6rem .8rem;
-            border-radius: 6px;
-            border: 1px solid rgb(107, 107, 131);
-            outline: none;
-            transition: all 200ms;
-            color: gray;
-            background-color: transparent;
+        width: 50rem;
 
-            &:focus{
-                color: black;
-                border: 3px solid rgba(85, 153, 96, 0.445) ; 
+        .filter{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border:solid gray 1px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+
+
+       
+            input{
+                padding: .6rem .8rem;
+                border-radius: 6px;
+                border: none;
+                outline: none;
+                transition: all 200ms;
+                color: gray;
+                background-color: transparent;
+                width: 100%;
+
+            }
+
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 0 !important;
             }
             
         }

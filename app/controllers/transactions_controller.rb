@@ -4,15 +4,18 @@ class TransactionsController < ApplicationController
   # GET /transactions or /transactions.json
   def index
     @transactions = current_user.transactions
-
     @categories = Category.where(user:current_user)
-    
+ 
+    @categories = @categories.where("lower(categories.name_category) LIKE ?", "%#{params[:filter].downcase}%") if params[:filter].present?
+
     @Appetizer = @transactions.where(situation: true).category_month.sum(:value)
-
     @withdraws = @transactions.where(situation: false).category_month.sum(:value)
-
     @balance =   @Appetizer + (@withdraws)
 
+  end
+
+  def filter_transactions
+    
   end
 
   # GET /transactions/1 or /transactions/1.json

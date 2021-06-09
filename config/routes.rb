@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :transactions
   resources :categories
 
+  match 'transactions/filter_transactions', via: [:get, :post], as: 'filter_transactions'
+
   root to: "transactions#index"
 
 end
