@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'tty-spinner'
+gem 'serviceworker-rails'
 
 
 gem 'bootstrap', '~> 5.0.1'
@@ -18,6 +19,7 @@ gem 'bootstrap', '~> 5.0.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+gem  'puma-ngrok-tunnel' 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
 

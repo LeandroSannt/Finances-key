@@ -33,6 +33,12 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  #ngrok config
+  config.hosts << /[a-z0-9.]+.ngrok.io/
+  # Safelist Puma-Dev hostname.
+  config.hosts << 'samplerailsapp.test'
+  config.hosts << /[a-z0-9]+\.samplerailsapp.test/
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
