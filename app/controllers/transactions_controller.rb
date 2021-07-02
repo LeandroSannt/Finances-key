@@ -8,8 +8,8 @@ class TransactionsController < ApplicationController
  
     @categories = @categories.where("lower(categories.name_category) LIKE ?", "%#{params[:filter].downcase}%") if params[:filter].present?
 
-    @Appetizer = @transactions.where(situation: true).category_month.sum(:value)
-    @withdraws = @transactions.where(situation: false).category_month.sum(:value)
+    @Appetizer = @transactions.where(situation: true).sum(:value)
+    @withdraws = @transactions.where(situation: false).sum(:value)
     @balance =   @Appetizer + (@withdraws)
 
   end
