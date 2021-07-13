@@ -51,7 +51,7 @@ class TransactionsController < ApplicationController
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
-    @transaction.situation == true  ? @transaction.value = @transaction.value.to_i * -1 : @transaction.value 
+    #@transaction.situation == true  ? @transaction.value = @transaction.value.to_i * -1 : @transaction.value 
     respond_to do |format|
       if @transaction.update(transaction_params)
         format.html { redirect_to @transaction, notice: "Transação atualizada com sucesso." }
